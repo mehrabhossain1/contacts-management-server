@@ -106,7 +106,7 @@ const updateContact = async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(500).json({
       success: false,
-      message: 'User not found',
+      message: 'Contact not found',
       error: error.error,
     })
   }
