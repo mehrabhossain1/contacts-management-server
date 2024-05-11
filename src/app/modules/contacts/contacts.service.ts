@@ -16,8 +16,21 @@ const deleteContact = async (id: string) => {
   return result
 }
 
+const updateContact = async (
+  id: string,
+  contactData: TContacts,
+): Promise<TContacts | null> => {
+  const result = await ContactsModel.findByIdAndUpdate(id, contactData, {
+    new: true,
+    runValidators: true,
+  })
+
+  return result
+}
+
 export const contactServices = {
   createContact,
   getAllContacts,
   deleteContact,
+  updateContact,
 }

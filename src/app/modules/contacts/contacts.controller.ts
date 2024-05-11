@@ -90,8 +90,31 @@ const deleteContact = async (req: Request, res: Response) => {
   }
 }
 
+const updateContact = async (req: Request, res: Response) => {
+  try {
+    const contactData = req.body
+
+    const { id } = req.params
+
+    const result = await contactServices.updateContact(id, contactData)
+
+    res.status(200).json({
+      success: true,
+      message: 'Contact updated successfully!',
+      data: result,
+    })
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      message: 'User not found',
+      error: error.error,
+    })
+  }
+}
+
 export const contactControllers = {
   createContact,
   getAllContacts,
   deleteContact,
+  updateContact,
 }

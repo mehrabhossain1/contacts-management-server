@@ -9,4 +9,6 @@ router.get('/', contactControllers.getAllContacts)
 
 router.delete('/:id', contactControllers.deleteContact)
 
+router.patch('/:id', contactControllers.updateContact)
+
 export const contactRoutes = router
