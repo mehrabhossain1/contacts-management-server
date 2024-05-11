@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from 'express'
 import { contactServices } from './contacts.service'
@@ -68,7 +70,28 @@ const getAllContacts = async (req: Request, res: Response) => {
   }
 }
 
+const deleteContact = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params
+
+    await contactServices.deleteContact(id)
+
+    res.status(200).json({
+      success: true,
+      message: 'User deleted successfully!',
+      data: null,
+    })
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      message: 'User not found',
+      error: error.error,
+    })
+  }
+}
+
 export const contactControllers = {
   createContact,
   getAllContacts,
+  deleteContact,
 }

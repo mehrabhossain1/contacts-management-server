@@ -7,4 +7,6 @@ router.post('/', contactControllers.createContact)
 
 router.get('/', contactControllers.getAllContacts)
 
+router.delete('/:id', contactControllers.deleteContact)
+
 export const contactRoutes = router
