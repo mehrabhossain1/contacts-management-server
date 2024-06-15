@@ -1,0 +1,4 @@
+PORT=5000
+DATABASE_URL=mongodb+srv://contacts-management:w0eqZOWdyQYr62hN@cluster0.mljzuyv.mongodb.net/contacts-management?retryWrites=true&w=majority&appName=Cluster0
+BCRYPT_SALT_ROUNDS=
+
